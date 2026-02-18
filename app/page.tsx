@@ -52,11 +52,10 @@ export default function Home() {
 
       <section className="hero sale-hero">
         <div className="hero-image-wrap">
-          <img
-            src="/img_home/Gemini_Generated_Image_6xdw1n6xdw1n6xdw (1) - Copia.png"
-            alt="Uniformes escolares Bordatto Confecções"
-            className="hero-image"
-          />
+          <picture>
+            <source media="(max-width: 680px)" srcSet="/img_home/mobile.png" />
+            <img src="/img_home/desktop.png" alt="Uniformes escolares Bordatto Confecções" className="hero-image" />
+          </picture>
         </div>
       </section>
 

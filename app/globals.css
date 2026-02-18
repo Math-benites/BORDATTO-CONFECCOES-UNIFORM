@@ -24,6 +24,67 @@ body {
   margin: 0 auto;
 }
 
+.site-footer {
+  margin-top: 2rem;
+  border-top: 1px solid #d8e1ee;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(4px);
+}
+
+.site-footer-inner {
+  min-height: 92px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+}
+
+.site-footer p {
+  margin: 0;
+  color: #334155;
+  font-size: 0.9rem;
+}
+
+.footer-brand strong {
+  display: block;
+  margin-bottom: 0.25rem;
+  font-size: 1rem;
+}
+
+.footer-brand p + p {
+  margin-top: 0.2rem;
+}
+
+.footer-brand p .icon-fa {
+  margin-right: 0.25rem;
+}
+
+.icon-fa {
+  font-size: 0.95rem;
+  line-height: 1;
+  vertical-align: -1px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.site-footer a {
+  color: #0f4c81;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
+
 .hero {
   padding: 5.6rem 0 2rem;
 }
@@ -38,6 +99,10 @@ body {
   margin-right: calc(50% - 50vw);
   border-top: 1px solid rgba(183, 203, 228, 0.52);
   border-bottom: 1px solid rgba(183, 203, 228, 0.52);
+}
+
+.hero-image-wrap picture {
+  display: block;
 }
 
 .hero-image {
@@ -503,6 +568,17 @@ h2 {
     padding-top: 4.9rem;
   }
 
+  .hero-image-wrap {
+    border-top: 0;
+  }
+
+  .hero-image {
+    height: auto;
+    max-height: 58vh;
+    object-fit: contain;
+    background: rgba(255, 255, 255, 0.35);
+  }
+
   .top-link {
     font-size: 0.8rem;
     padding: 0.35rem 0.56rem;
@@ -528,5 +604,33 @@ h2 {
 
   .brand-mini strong {
     font-size: 0.82rem;
+  }
+
+  .site-footer-inner {
+    min-height: 110px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 10px 0;
+    gap: 0.7rem;
+  }
+
+  .footer-links {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.45rem 0.6rem;
+  }
+
+  .footer-links a {
+    min-height: 34px;
+    padding: 0.35rem 0.5rem;
+    border: 1px solid #d8e1ee;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.72);
+  }
+
+  .footer-brand p {
+    font-size: 0.84rem;
   }
 }

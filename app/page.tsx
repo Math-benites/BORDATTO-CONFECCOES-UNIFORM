@@ -1,33 +1,37 @@
 const slides = [
-  { image: "/img/Gemini_Generated_Image_1bv3h11bv3h11bv3.png", tag: "Escolar", title: "Uniformes escolares com acabamento premium" },
-  { image: "/img/Gemini_Generated_Image_2rcg0o2rcg0o2rcg.png", tag: "Escolar", title: "Modelos escolares para ensino fundamental e medio" },
-  { image: "/img/Gemini_Generated_Image_a7olnja7olnja7ol.png", tag: "Escolar", title: "Conforto e resistencia para a rotina escolar" },
-  { image: "/img/Gemini_Generated_Image_d8e8y1d8e8y1d8e8.png", tag: "Escolar", title: "Padroes escolares personalizados por instituicao" },
-  { image: "/img/Gemini_Generated_Image_dnbfnadnbfnadnbf.png", tag: "Escolar", title: "Colecoes completas para uniformizacao escolar" }
+  { image: "/img_home/Gemini_Generated_Image_1bv3h11bv3h11bv3.png", tag: "Escolar", title: "Uniformes escolares com acabamento premium" },
+  { image: "/img_home/Gemini_Generated_Image_2rcg0o2rcg0o2rcg.png", tag: "Escolar", title: "Modelos escolares para ensino fundamental e medio" },
+  { image: "/img_home/Gemini_Generated_Image_a7olnja7olnja7ol.png", tag: "Escolar", title: "Conforto e resistencia para a rotina escolar" },
+  { image: "/img_home/Gemini_Generated_Image_d8e8y1d8e8y1d8e8.png", tag: "Escolar", title: "Padroes escolares personalizados por instituicao" },
+  { image: "/img_home/Gemini_Generated_Image_dnbfnadnbfnadnbf.png", tag: "Escolar", title: "Colecoes completas para uniformizacao escolar" }
 ];
 
 const whatsappNumber = "5548991217882";
 
 export default function Home() {
   return (
-    <main>
+    <main className="home-page">
       <header className="top-bar">
         <div className="container top-bar-inner">
           <div className="brand-mini">
-            <img src="/img/logo-removebg-preview.png" alt="Logo Bordatto Confeccoes" />
+            <img src="/img_home/logo-removebg-preview.png" alt="Logo Bordatto Confeccoes" />
             <strong>Bordatto Confeccoes</strong>
           </div>
-          <a className="top-bar-cta" href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("api ola")}`} target="_blank" rel="noopener noreferrer">
-            WhatsApp
-          </a>
+          <nav className="top-nav">
+            <a className="top-link" href="/">Inicio</a>
+            <a className="top-link" href="/sobre">Sobre</a>
+          </nav>
         </div>
       </header>
 
       <section className="hero sale-hero">
         <div className="container">
-          <p className="eyebrow">UNIFORME ESCOLAR, EMPRESARIAL E ESPORTIVO</p>
+          <p className="eyebrow">UNIFORMES ESCOLARES, EMPRESARIAIS E ESPORTIVOS</p>
           <h1>Bordatto Confeccoes</h1>
-          <p className="lead">Venda de uniformes com qualidade, acabamento profissional e entrega para todo o Brasil.</p>
+          <p className="lead">
+            Confeccionamos uniformes que valorizam sua marca e sua equipe, com padrao de acabamento premium,
+            conforto no uso diario e entrega para todo o Brasil.
+          </p>
         </div>
       </section>
 

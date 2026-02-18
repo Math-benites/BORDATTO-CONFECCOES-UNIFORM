@@ -50,6 +50,24 @@ body {
   justify-content: space-between;
 }
 
+.top-nav {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.top-link {
+  text-decoration: none;
+  color: #1e293b;
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 0.4rem 0.66rem;
+  border-radius: 999px;
+}
+
+.top-link:hover {
+  background: #e2ecf8;
+}
+
 .brand-mini {
   display: flex;
   align-items: center;
@@ -104,6 +122,74 @@ h2 {
   max-width: 60ch;
   line-height: 1.7;
   color: var(--muted);
+}
+
+.about-hero {
+  text-align: left;
+}
+
+.about-banner {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 20px;
+  border: 1px solid #d5e1f0;
+  box-shadow: 0 14px 28px rgba(9, 30, 66, 0.12);
+}
+
+.about-page {
+  min-height: 100vh;
+  background-color: #f4f8ff;
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(15, 76, 129, 0.18) 1px, transparent 0),
+    linear-gradient(180deg, rgba(205, 226, 250, 0.42), rgba(244, 248, 255, 0.8));
+  background-size: 22px 22px, auto;
+}
+
+.home-page {
+  min-height: 100vh;
+  background-color: #f4f8ff;
+  background-image:
+    radial-gradient(circle at 1px 1px, rgba(15, 76, 129, 0.14) 1px, transparent 0),
+    linear-gradient(180deg, rgba(205, 226, 250, 0.36), rgba(244, 248, 255, 0.82));
+  background-size: 22px 22px, auto;
+}
+
+.about-page .card,
+.about-page .about-cta,
+.about-page .atelier-card {
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.about-cta {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 1.3rem;
+}
+
+.about-cta p {
+  color: var(--muted);
+}
+
+.atelier-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.atelier-card {
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  box-shadow: 0 10px 20px rgba(2, 6, 23, 0.08);
+}
+
+.atelier-card img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  display: block;
 }
 
 .carousel-section {
@@ -274,6 +360,11 @@ h2 {
 @media (max-width: 680px) {
   .hero {
     padding-top: 4.9rem;
+  }
+
+  .top-link {
+    font-size: 0.8rem;
+    padding: 0.35rem 0.56rem;
   }
 
   .carousel-group {

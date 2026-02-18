@@ -1,9 +1,9 @@
 const slides = [
   { image: "/img/Gemini_Generated_Image_1bv3h11bv3h11bv3.png", tag: "Escolar", title: "Uniformes escolares com acabamento premium" },
-  { image: "/img/Gemini_Generated_Image_2rcg0o2rcg0o2rcg.png", tag: "Empresarial", title: "Padrao visual para equipes e empresas" },
-  { image: "/img/Gemini_Generated_Image_a7olnja7olnja7ol.png", tag: "Esportivo", title: "Conforto e resistencia para treino e jogo" },
-  { image: "/img/Gemini_Generated_Image_d8e8y1d8e8y1d8e8.png", tag: "Promocional", title: "Modelos personalizados para sua marca" },
-  { image: "/img/Gemini_Generated_Image_dnbfnadnbfnadnbf.png", tag: "Profissional", title: "Uniformizacao completa para seu negocio" }
+  { image: "/img/Gemini_Generated_Image_2rcg0o2rcg0o2rcg.png", tag: "Escolar", title: "Modelos escolares para ensino fundamental e medio" },
+  { image: "/img/Gemini_Generated_Image_a7olnja7olnja7ol.png", tag: "Escolar", title: "Conforto e resistencia para a rotina escolar" },
+  { image: "/img/Gemini_Generated_Image_d8e8y1d8e8y1d8e8.png", tag: "Escolar", title: "Padroes escolares personalizados por instituicao" },
+  { image: "/img/Gemini_Generated_Image_dnbfnadnbfnadnbf.png", tag: "Escolar", title: "Colecoes completas para uniformizacao escolar" }
 ];
 
 const whatsappNumber = "5548991217882";

@@ -13,10 +13,10 @@ export default function Home() {
     <main className="home-page">
       <header className="top-bar">
         <div className="container top-bar-inner">
-          <div className="brand-mini">
-            <img src="/img_home/logo-removebg-preview.png" alt="Logo Bordatto Confeccoes" />
-            <strong>Bordatto Confeccoes</strong>
-          </div>
+          <a className="brand-mini" href="/">
+            <img src="/img_home/logo-removebg-preview.png" alt="Logo Bordatto Confecções" />
+            <strong>Bordatto Confecções</strong>
+          </a>
           <nav className="top-nav">
             <a className="top-link" href="/">Inicio</a>
             <a className="top-link" href="/sobre">Sobre</a>

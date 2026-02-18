@@ -7,7 +7,7 @@ const atelierImages = [
   },
   {
     src: "/img_sobre/Gemini_Generated_Image_l5r72ml5r72ml5r7.png",
-    alt: "Profissional de confeccao em maquina de costura"
+    alt: "Profissional de confecção em maquina de costura"
   }
 ];
 
@@ -16,10 +16,10 @@ export default function SobrePage() {
     <main className="about-page">
       <header className="top-bar">
         <div className="container top-bar-inner">
-          <div className="brand-mini">
-            <img src="/img_home/logo-removebg-preview.png" alt="Logo Bordatto Confeccoes" />
-            <strong>Bordatto Confeccoes</strong>
-          </div>
+          <a className="brand-mini" href="/">
+            <img src="/img_home/logo-removebg-preview.png" alt="Logo Bordatto Confecções" />
+            <strong>Bordatto Confecções</strong>
+          </a>
           <nav className="top-nav">
             <a className="top-link" href="/">Inicio</a>
             <a className="top-link" href="/sobre">Sobre</a>
@@ -75,7 +75,7 @@ export default function SobrePage() {
 
       <section className="section">
         <div className="container about-cta">
-          <h2>Precisa de um projeto de confeccao completo?</h2>
+          <h2>Precisa de um projeto de confecção completo?</h2>
           <p>Fale com a Bordatto Confeccoes e receba atendimento direto para seu tipo de demanda.</p>
           <a className="top-bar-cta" href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("api ola")}`} target="_blank" rel="noopener noreferrer">
             Conversar no WhatsApp

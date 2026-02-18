@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Bordatto Confeccoes",
-  description: "Site oficial da Bordatto Confeccoes"
+  title: "Bordatto Confecções",
+  description: "Site oficial da Bordatto Confecções"
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -13,4 +13,5 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
+
 

@@ -7,7 +7,7 @@ const atelierImages = [
   },
   {
     src: "/img_sobre/Gemini_Generated_Image_l5r72ml5r72ml5r7.png",
-    alt: "Profissional de confecção em maquina de costura"
+    alt: "Profissional de confecção em máquina de costura"
   }
 ];
 
@@ -21,7 +21,7 @@ export default function SobrePage() {
             <strong>Bordatto Confecções</strong>
           </a>
           <nav className="top-nav">
-            <a className="top-link" href="/">Inicio</a>
+            <a className="top-link" href="/">Início</a>
             <a className="top-link" href="/sobre">Sobre</a>
           </nav>
         </div>
@@ -29,32 +29,32 @@ export default function SobrePage() {
 
       <section className="hero about-hero">
         <div className="container">
-          <img className="about-banner" src="/img_sobre/sobre.png" alt="Sobre a Bordatto Confeccoes" />
+          <img className="about-banner" src="/img_sobre/sobre.png" alt="Sobre a Bordatto Confecções" />
         </div>
       </section>
 
       <section className="section">
         <div className="container grid-3">
           <article className="card">
-            <h3>O canivete suico da costura</h3>
+            <h3>O canivete suíço da costura</h3>
             <p>
-              Desenvolvemos cada projeto do zero: criacao, modelagem, corte, ajustes e producao - sob medida
-              ou em escala. Trabalhamos com padrao tecnico de atelie, unindo precisao, organizacao e
-              excelencia em cada etapa.
+              Desenvolvemos cada projeto do zero: criação, modelagem, corte, ajustes e produção - sob medida
+              ou em escala. Trabalhamos com padrão técnico de ateliê, unindo precisão, organização e
+              excelência em cada etapa.
             </p>
           </article>
           <article className="card">
             <h3>Do uniforme ao casamento</h3>
             <p>
-              Produzimos colecoes escolares e empresariais, alem de pecas especiais para festas, cerimonias e
-              casamentos. Versatilidade e cuidado para atender desde demandas corporativas ate momentos unicos.
+              Produzimos coleções escolares e empresariais, além de peças especiais para festas, cerimônias e
+              casamentos. Versatilidade e cuidado para atender desde demandas corporativas até momentos únicos.
             </p>
           </article>
           <article className="card">
             <h3>Qualidade artesanal</h3>
             <p>
-              Nossa equipe combina experiencia, selecao criteriosa de materiais e revisao detalhada em todas
-              as fases do processo, garantindo acabamento premium em cada peca.
+              Nossa equipe combina experiência, seleção criteriosa de materiais e revisão detalhada em todas
+              as fases do processo, garantindo acabamento premium em cada peça.
             </p>
           </article>
         </div>
@@ -76,7 +76,7 @@ export default function SobrePage() {
       <section className="section">
         <div className="container about-cta">
           <h2>Precisa de um projeto de confecção completo?</h2>
-          <p>Fale com a Bordatto Confeccoes e receba atendimento direto para seu tipo de demanda.</p>
+          <p>Fale com a Bordatto Confecções e receba atendimento direto para seu tipo de demanda.</p>
           <a className="top-bar-cta" href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("api ola")}`} target="_blank" rel="noopener noreferrer">
             Conversar no WhatsApp
           </a>

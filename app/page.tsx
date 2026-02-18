@@ -1,9 +1,9 @@
 const slides = [
   { image: "/img_home/Gemini_Generated_Image_1bv3h11bv3h11bv3.png", tag: "Escolar", title: "Uniformes escolares com acabamento premium" },
-  { image: "/img_home/Gemini_Generated_Image_2rcg0o2rcg0o2rcg.png", tag: "Escolar", title: "Modelos escolares para ensino fundamental e medio" },
-  { image: "/img_home/Gemini_Generated_Image_a7olnja7olnja7ol.png", tag: "Escolar", title: "Conforto e resistencia para a rotina escolar" },
-  { image: "/img_home/Gemini_Generated_Image_d8e8y1d8e8y1d8e8.png", tag: "Escolar", title: "Padroes escolares personalizados por instituicao" },
-  { image: "/img_home/Gemini_Generated_Image_dnbfnadnbfnadnbf.png", tag: "Escolar", title: "Colecoes completas para uniformizacao escolar" }
+  { image: "/img_home/Gemini_Generated_Image_2rcg0o2rcg0o2rcg.png", tag: "Escolar", title: "Modelos escolares para ensino fundamental e médio" },
+  { image: "/img_home/Gemini_Generated_Image_a7olnja7olnja7ol.png", tag: "Escolar", title: "Conforto e resistência para a rotina escolar" },
+  { image: "/img_home/Gemini_Generated_Image_d8e8y1d8e8y1d8e8.png", tag: "Escolar", title: "Padrões escolares personalizados por instituição" },
+  { image: "/img_home/Gemini_Generated_Image_dnbfnadnbfnadnbf.png", tag: "Escolar", title: "Coleções completas para uniformização escolar" }
 ];
 
 const whatsappNumber = "5548991217882";
@@ -18,7 +18,7 @@ export default function Home() {
             <strong>Bordatto Confecções</strong>
           </a>
           <nav className="top-nav">
-            <a className="top-link" href="/">Inicio</a>
+            <a className="top-link" href="/">Início</a>
             <a className="top-link" href="/sobre">Sobre</a>
           </nav>
         </div>
@@ -27,10 +27,10 @@ export default function Home() {
       <section className="hero sale-hero">
         <div className="container">
           <p className="eyebrow">UNIFORMES ESCOLARES, EMPRESARIAIS E ESPORTIVOS</p>
-          <h1>Bordatto Confeccoes</h1>
+          <h1>Bordatto Confecções</h1>
           <p className="lead">
-            Confeccionamos uniformes que valorizam sua marca e sua equipe, com padrao de acabamento premium,
-            conforto no uso diario e entrega para todo o Brasil.
+            Confeccionamos uniformes que valorizam sua marca e sua equipe, com padrão de acabamento premium,
+            conforto no uso diário e entrega para todo o Brasil.
           </p>
         </div>
       </section>
@@ -69,17 +69,35 @@ export default function Home() {
 
       <section className="section">
         <div className="container grid-3">
-          <article className="card">
+          <article className="card card-durabilidade">
+            <div className="card-icon" aria-hidden="true">🛡️</div>
             <h3>Alta durabilidade</h3>
             <p>Tecidos resistentes para uso intenso no dia a dia.</p>
+            <div className="card-badges">
+              <span>Reforçado</span>
+              <span>Uso intenso</span>
+              <span>Premium</span>
+            </div>
           </article>
-          <article className="card">
-            <h3>Personalizacao completa</h3>
+          <article className="card card-durabilidade">
+            <div className="card-icon" aria-hidden="true">🎨</div>
+            <h3>Personalização completa</h3>
             <p>Logo, cores e modelagem de acordo com sua necessidade.</p>
+            <div className="card-badges">
+              <span>Sob medida</span>
+              <span>Sua marca</span>
+              <span>Identidade</span>
+            </div>
           </article>
-          <article className="card">
-            <h3>Atendimento rapido</h3>
-            <p>Orcamento direto no WhatsApp com resposta agil.</p>
+          <article className="card card-durabilidade">
+            <div className="card-icon" aria-hidden="true">🎯</div>
+            <h3>Precisão técnica</h3>
+            <p>Padrão rigoroso com controle de medidas, processos e acabamento para garantir alta consistência e excelência em cada peça.</p>
+            <div className="card-badges">
+              <span>Controle dimensional</span>
+              <span>Processo padronizado</span>
+              <span>Alta repetibilidade</span>
+            </div>
           </article>
         </div>
       </section>

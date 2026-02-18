@@ -45,7 +45,7 @@ export default function Home() {
           </a>
           <nav className="top-nav">
             <a className="top-link" href="/">Início</a>
-            <a className="top-link" href="/sobre">Sobre</a>
+            <a className="top-link" href="/sobre">Orçamento</a>
           </nav>
         </div>
       </header>
@@ -136,7 +136,7 @@ export default function Home() {
         </div>
       </section>
 
-      <a className="whats-float" href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("api ola")}`} target="_blank" rel="noopener noreferrer" aria-label="Abrir conversa no WhatsApp">
+      <a className="whats-float" href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Olá, gostaria de fazer um orçamento.")}`} target="_blank" rel="noopener noreferrer" aria-label="Abrir conversa no WhatsApp">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path d="M12 2a10 10 0 0 0-8.7 14.9L2 22l5.3-1.3A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3.1.8.8-3-.2-.3A8 8 0 1 1 12 20Zm4.4-6c-.2-.1-1.4-.7-1.6-.7s-.3-.1-.5.1-.6.7-.7.8-.2.2-.5.1a6.5 6.5 0 0 1-1.9-1.2 7.2 7.2 0 0 1-1.3-1.7c-.1-.3 0-.4.1-.5l.4-.5.2-.4a.4.4 0 0 0 0-.4c0-.1-.5-1.3-.8-1.8-.2-.4-.4-.3-.5-.3h-.5a1 1 0 0 0-.7.3c-.2.2-.9.8-.9 2 0 1.1.9 2.3 1 2.5.2.1 1.7 2.7 4.2 3.7.6.3 1 .4 1.4.5.6.2 1.1.2 1.5.1.5-.1 1.4-.6 1.6-1.2.2-.5.2-1 .1-1.1s-.2-.1-.4-.2Z" />
         </svg>

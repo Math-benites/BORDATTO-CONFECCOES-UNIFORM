@@ -254,6 +254,11 @@ h2 {
   color: var(--muted);
 }
 
+.orcamento-section {
+  display: block;
+  padding: 1rem 0 0;
+}
+
 .atelier-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));

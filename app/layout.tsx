@@ -43,7 +43,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <i aria-hidden="true" className="fa-brands fa-instagram icon-fa" />
                 Instagram
               </a>
-              <a href="https://wa.me/5548991217882?text=api%20ola" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/5548991217882?text=Ol%C3%A1%2C%20gostaria%20de%20fazer%20um%20or%C3%A7amento." target="_blank" rel="noopener noreferrer">
                 <i aria-hidden="true" className="fa-brands fa-whatsapp icon-fa" />
                 WhatsApp
               </a>

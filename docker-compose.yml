@@ -18,3 +18,15 @@ services:
       - /app/node_modules
       - /app/.next
 
+  ngrok:
+    image: ngrok/ngrok:latest
+    container_name: uniforme_ngrok
+    restart: unless-stopped
+    depends_on:
+      - web
+    environment:
+      NGROK_AUTHTOKEN: "${NGROK_AUTHTOKEN}"
+    command: http web:3000 --log=stdout
+    ports:
+      - "4040:4040"
+

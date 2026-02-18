@@ -237,6 +237,13 @@ h2 {
   box-shadow: 0 15px 38px rgba(0, 0, 0, 0.2);
 }
 
+.slide-trigger {
+  border: 0;
+  padding: 0;
+  cursor: zoom-in;
+  text-align: left;
+}
+
 .slide-image {
   position: absolute;
   inset: 0;
@@ -394,6 +401,41 @@ h2 {
   border-radius: 999px;
   border: 1px solid rgba(0, 0, 0, 0.14);
   background: rgba(0, 0, 0, 0.04);
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: rgba(2, 6, 23, 0.86);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.lightbox-image {
+  max-width: min(1200px, 94vw);
+  max-height: 88vh;
+  width: auto;
+  height: auto;
+  border-radius: 14px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+  background: #fff;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  border: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
 }
 
 .whats-float {

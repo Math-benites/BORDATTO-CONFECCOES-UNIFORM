@@ -1,4 +1,8 @@
-﻿const slides = [
+﻿"use client";
+
+import { useEffect, useState } from "react";
+
+const slides = [
   { image: "/img_home/Gemini_Generated_Image_10dtlh10dtlh10dt.png", tag: "Escolar", title: "Linha escolar com design moderno e resistente" },
   { image: "/img_home/Gemini_Generated_Image_1bv3h11bv3h11bv3.png", tag: "Escolar", title: "Uniformes escolares com acabamento premium" },
   { image: "/img_home/Gemini_Generated_Image_2rcg0o2rcg0o2rcg.png", tag: "Escolar", title: "Modelos escolares para ensino fundamental e médio" },
@@ -11,6 +15,26 @@
 const whatsappNumber = "5548991217882";
 
 export default function Home() {
+  const [selectedSlide, setSelectedSlide] = useState<{ image: string; title: string } | null>(null);
+
+  useEffect(() => {
+    if (!selectedSlide) return;
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setSelectedSlide(null);
+      }
+    };
+
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [selectedSlide]);
+
   return (
     <main className="home-page">
       <header className="top-bar">
@@ -45,24 +69,34 @@ export default function Home() {
           <div className="carousel-marquee">
             <div className="carousel-group">
               {slides.map((slide) => (
-                <article key={`a-${slide.image}`} className="slide-card">
+                <button
+                  key={`a-${slide.image}`}
+                  type="button"
+                  className="slide-card slide-trigger"
+                  onClick={() => setSelectedSlide(slide)}
+                >
                   <img src={slide.image} alt={slide.title} className="slide-image" />
                   <div className="slide-overlay">
                     <span>{slide.tag}</span>
                     <h3>{slide.title}</h3>
                   </div>
-                </article>
+                </button>
               ))}
             </div>
             <div className="carousel-group" aria-hidden="true">
               {slides.map((slide) => (
-                <article key={`b-${slide.image}`} className="slide-card">
+                <button
+                  key={`b-${slide.image}`}
+                  type="button"
+                  className="slide-card slide-trigger"
+                  onClick={() => setSelectedSlide(slide)}
+                >
                   <img src={slide.image} alt="" className="slide-image" />
                   <div className="slide-overlay">
                     <span>{slide.tag}</span>
                     <h3>{slide.title}</h3>
                   </div>
-                </article>
+                </button>
               ))}
             </div>
           </div>
@@ -109,6 +143,20 @@ export default function Home() {
           <path d="M12 2a10 10 0 0 0-8.7 14.9L2 22l5.3-1.3A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3.1.8.8-3-.2-.3A8 8 0 1 1 12 20Zm4.4-6c-.2-.1-1.4-.7-1.6-.7s-.3-.1-.5.1-.6.7-.7.8-.2.2-.5.1a6.5 6.5 0 0 1-1.9-1.2 7.2 7.2 0 0 1-1.3-1.7c-.1-.3 0-.4.1-.5l.4-.5.2-.4a.4.4 0 0 0 0-.4c0-.1-.5-1.3-.8-1.8-.2-.4-.4-.3-.5-.3h-.5a1 1 0 0 0-.7.3c-.2.2-.9.8-.9 2 0 1.1.9 2.3 1 2.5.2.1 1.7 2.7 4.2 3.7.6.3 1 .4 1.4.5.6.2 1.1.2 1.5.1.5-.1 1.4-.6 1.6-1.2.2-.5.2-1 .1-1.1s-.2-.1-.4-.2Z" />
         </svg>
       </a>
+
+      {selectedSlide && (
+        <div className="lightbox" role="dialog" aria-modal="true" aria-label={selectedSlide.title} onClick={() => setSelectedSlide(null)}>
+          <button type="button" className="lightbox-close" onClick={() => setSelectedSlide(null)} aria-label="Fechar imagem">
+            ×
+          </button>
+          <img
+            src={selectedSlide.image}
+            alt={selectedSlide.title}
+            className="lightbox-image"
+            onClick={(event) => event.stopPropagation()}
+          />
+        </div>
+      )}
     </main>
   );
 }

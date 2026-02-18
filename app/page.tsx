@@ -1,8 +1,10 @@
-const slides = [
+﻿const slides = [
+  { image: "/img_home/Gemini_Generated_Image_10dtlh10dtlh10dt.png", tag: "Escolar", title: "Linha escolar com design moderno e resistente" },
   { image: "/img_home/Gemini_Generated_Image_1bv3h11bv3h11bv3.png", tag: "Escolar", title: "Uniformes escolares com acabamento premium" },
   { image: "/img_home/Gemini_Generated_Image_2rcg0o2rcg0o2rcg.png", tag: "Escolar", title: "Modelos escolares para ensino fundamental e médio" },
-  { image: "/img_home/Gemini_Generated_Image_a7olnja7olnja7ol.png", tag: "Escolar", title: "Conforto e resistência para a rotina escolar" },
+  { image: "/img_home/Gemini_Generated_Image_9ddz3h9ddz3h9ddz.png", tag: "Escolar", title: "Conforto e resistência para a rotina escolar" },
   { image: "/img_home/Gemini_Generated_Image_d8e8y1d8e8y1d8e8.png", tag: "Escolar", title: "Padrões escolares personalizados por instituição" },
+  { image: "/img_home/Gemini_Generated_Image_vs1u9tvs1u9tvs1u.png", tag: "Escolar", title: "Modelos escolares" },
   { image: "/img_home/Gemini_Generated_Image_dnbfnadnbfnadnbf.png", tag: "Escolar", title: "Coleções completas para uniformização escolar" }
 ];
 

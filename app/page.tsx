@@ -51,13 +51,12 @@ export default function Home() {
       </header>
 
       <section className="hero sale-hero">
-        <div className="container">
-          <p className="eyebrow">UNIFORMES ESCOLARES, EMPRESARIAIS E ESPORTIVOS</p>
-          <h1>Bordatto Confecções</h1>
-          <p className="lead">
-            Confeccionamos uniformes que valorizam sua marca e sua equipe, com padrão de acabamento premium,
-            conforto no uso diário e entrega para todo o Brasil.
-          </p>
+        <div className="hero-image-wrap">
+          <img
+            src="/img_home/Gemini_Generated_Image_6xdw1n6xdw1n6xdw (1) - Copia.png"
+            alt="Uniformes escolares Bordatto Confecções"
+            className="hero-image"
+          />
         </div>
       </section>
 

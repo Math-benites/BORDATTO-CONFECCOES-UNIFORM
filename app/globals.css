@@ -32,6 +32,21 @@ body {
   text-align: center;
 }
 
+.hero-image-wrap {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  border-top: 1px solid rgba(183, 203, 228, 0.52);
+  border-bottom: 1px solid rgba(183, 203, 228, 0.52);
+}
+
+.hero-image {
+  width: 100%;
+  height: clamp(280px, 52vw, 620px);
+  object-fit: cover;
+  display: block;
+}
+
 .top-bar {
   position: fixed;
   top: 0;
@@ -205,9 +220,12 @@ h2 {
 .carousel-marquee {
   display: flex;
   overflow: hidden;
-  background: linear-gradient(180deg, #dbeafe, #bfdbfe);
-  border-top: 1px solid #b7cbe4;
-  border-bottom: 1px solid #b7cbe4;
+  background:
+    linear-gradient(180deg, rgba(219, 234, 254, 0.34), rgba(191, 219, 254, 0.22)),
+    rgba(255, 255, 255, 0.26);
+  border-top: 1px solid rgba(183, 203, 228, 0.52);
+  border-bottom: 1px solid rgba(183, 203, 228, 0.52);
+  backdrop-filter: blur(3px);
 }
 
 .carousel-group {

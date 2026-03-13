@@ -35,14 +35,17 @@ function OptimizedImage({
 export default function Home() {
   const [selectedSlide, setSelectedSlide] = useState<{ image: string; title: string } | null>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [slideDirection, setSlideDirection] = useState<"next" | "prev">("next");
   const touchStartX = useRef<number | null>(null);
   const touchEndX = useRef<number | null>(null);
 
   const goToNextSlide = () => {
+    setSlideDirection("next");
     setCurrentSlide((prev) => (prev + 1) % slides.length);
   };
 
   const goToPrevSlide = () => {
+    setSlideDirection("prev");
     setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
   };
 
@@ -128,7 +131,7 @@ export default function Home() {
         </div>
         <div className="carousel-shell">
           <div className="carousel-viewport" onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}>
-            <div className="carousel-track">
+            <div key={currentSlide} className={`carousel-track ${slideDirection === "next" ? "track-next" : "track-prev"}`}>
               {[-1, 0, 1].map((offset) => {
                 const index = (currentSlide + offset + slides.length) % slides.length;
                 const slide = slides[index];
@@ -160,7 +163,10 @@ export default function Home() {
                 className={`carousel-dot ${currentSlide === index ? "active" : ""}`}
                 aria-label={`Ir para imagem ${index + 1}`}
                 aria-current={currentSlide === index ? "true" : "false"}
-                onClick={() => setCurrentSlide(index)}
+                onClick={() => {
+                  setSlideDirection(index >= currentSlide ? "next" : "prev");
+                  setCurrentSlide(index);
+                }}
               />
             ))}
           </div>

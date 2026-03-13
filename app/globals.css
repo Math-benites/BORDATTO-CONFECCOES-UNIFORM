@@ -308,6 +308,36 @@ h2 {
   justify-content: center;
 }
 
+.carousel-track.track-next {
+  animation: carousel-transition-next 420ms ease;
+}
+
+.carousel-track.track-prev {
+  animation: carousel-transition-prev 420ms ease;
+}
+
+@keyframes carousel-transition-next {
+  from {
+    transform: translateX(18px);
+    opacity: 0.86;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes carousel-transition-prev {
+  from {
+    transform: translateX(-18px);
+    opacity: 0.86;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
 .carousel-slide {
   flex: 0 0 22%;
   min-width: 0;
@@ -342,10 +372,41 @@ h2 {
   position: relative;
   display: flex;
   align-items: flex-end;
-  background: #d6e7ff;
+  background:
+    linear-gradient(165deg, rgba(255, 255, 255, 0.9), rgba(203, 213, 225, 0.92)),
+    repeating-linear-gradient(
+      135deg,
+      rgba(15, 23, 42, 0.05) 0 10px,
+      rgba(15, 23, 42, 0.015) 10px 20px
+    );
   border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 15px 38px rgba(0, 0, 0, 0.2);
+  border: 1px solid #64748b;
+  box-shadow:
+    0 16px 34px rgba(15, 23, 42, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.82),
+    inset 0 -4px 0 rgba(15, 23, 42, 0.12);
+}
+
+.slide-card::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border-radius: 10px;
+  border: 1px dashed rgba(15, 23, 42, 0.26);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.slide-card::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, #334155, #64748b);
+  z-index: 2;
+  pointer-events: none;
 }
 
 .slide-trigger {
@@ -366,12 +427,13 @@ h2 {
 
 .slide-overlay {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   width: calc(100% - 20px);
   margin: 0 10px 10px;
   padding: 10px 12px;
   border-radius: 12px;
-  background: rgba(8, 18, 33, 0.52);
+  background: rgba(8, 18, 33, 0.62);
+  border: 1px solid rgba(148, 163, 184, 0.5);
   backdrop-filter: blur(2px);
   color: #fff;
 }
@@ -379,10 +441,11 @@ h2 {
 .slide-overlay span {
   display: inline-block;
   margin-bottom: 6px;
-  background: #0f4c81;
+  background: linear-gradient(180deg, #334155, #0f172a);
   color: #fff;
   border-radius: 999px;
   padding: 4px 10px;
+  border: 1px solid rgba(148, 163, 184, 0.5);
   font-size: 0.68rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;

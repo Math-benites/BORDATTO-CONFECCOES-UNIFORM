@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const slides = [
   { image: "/img_home/Gemini_Generated_Image_10dtlh10dtlh10dt.avif", tag: "Escolar", title: "Linha escolar com design moderno e resistente" },
@@ -46,6 +46,16 @@ function OptimizedImage({
 export default function Home() {
   const [selectedSlide, setSelectedSlide] = useState<{ image: string; title: string } | null>(null);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const touchStartX = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
+
+  const goToNextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
+
+  const goToPrevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
 
   useEffect(() => {
     if (!selectedSlide) return;
@@ -69,11 +79,35 @@ export default function Home() {
     if (selectedSlide) return;
 
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
+      goToNextSlide();
     }, 4500);
 
     return () => clearInterval(timer);
   }, [selectedSlide]);
+
+  const onTouchStart: React.TouchEventHandler<HTMLDivElement> = (event) => {
+    touchStartX.current = event.changedTouches[0].clientX;
+    touchEndX.current = null;
+  };
+
+  const onTouchMove: React.TouchEventHandler<HTMLDivElement> = (event) => {
+    touchEndX.current = event.changedTouches[0].clientX;
+  };
+
+  const onTouchEnd: React.TouchEventHandler<HTMLDivElement> = () => {
+    if (touchStartX.current === null) return;
+    const end = touchEndX.current ?? touchStartX.current;
+    const delta = touchStartX.current - end;
+    const threshold = 45;
+
+    if (Math.abs(delta) >= threshold) {
+      if (delta > 0) goToNextSlide();
+      else goToPrevSlide();
+    }
+
+    touchStartX.current = null;
+    touchEndX.current = null;
+  };
 
   return (
     <main className="home-page">
@@ -106,7 +140,7 @@ export default function Home() {
           <h2>Modelos em destaque</h2>
         </div>
         <div className="carousel-shell">
-          <div className="carousel-viewport">
+          <div className="carousel-viewport" onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd}>
             <div className="carousel-track">
               {[-1, 0, 1].map((offset) => {
                 const index = (currentSlide + offset + slides.length) % slides.length;

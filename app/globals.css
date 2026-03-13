@@ -297,6 +297,7 @@ h2 {
     rgba(255, 255, 255, 0.26);
   backdrop-filter: blur(3px);
   border-radius: 14px;
+  touch-action: pan-y;
 }
 
 .carousel-track {
@@ -304,12 +305,13 @@ h2 {
   gap: 16px;
   padding: 20px 18px;
   align-items: stretch;
+  justify-content: center;
 }
 
 .carousel-slide {
-  flex: 1 1 0;
+  flex: 0 0 22%;
   min-width: 0;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition: transform 0.32s ease, opacity 0.32s ease, flex-basis 0.32s ease;
 }
 
 .carousel-slide .slide-card {
@@ -319,13 +321,19 @@ h2 {
 }
 
 .carousel-slide.is-active {
+  flex-basis: 50%;
   transform: scale(1);
   opacity: 1;
 }
 
 .carousel-slide.is-side {
+  flex-basis: 22%;
   transform: scale(0.93);
   opacity: 0.72;
+}
+
+.carousel-slide.is-side .slide-overlay {
+  opacity: 0;
 }
 
 .slide-card {
@@ -586,14 +594,16 @@ h2 {
 @media (max-width: 860px) {
   .carousel-track {
     padding: 14px 12px;
+    gap: 10px;
   }
 
   .carousel-slide.is-side {
-    display: none;
+    flex-basis: 17%;
+    opacity: 0.55;
   }
 
-  .carousel-slide {
-    flex: 0 0 100%;
+  .carousel-slide.is-active {
+    flex-basis: 62%;
   }
 
   .carousel-slide .slide-card {

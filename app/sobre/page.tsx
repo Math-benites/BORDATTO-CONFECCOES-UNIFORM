@@ -1,15 +1,38 @@
-﻿const whatsappNumber = "5548991217882";
+const whatsappNumber = "5592992193704";
 
 const atelierImages = [
   {
-    src: "/img_sobre/Gemini_Generated_Image_ct92crct92crct92.png",
+    src: "/img_sobre/Gemini_Generated_Image_ct92crct92crct92.avif",
     alt: "Costureira ajustando roupa em manequim"
   },
   {
-    src: "/img_sobre/Gemini_Generated_Image_l5r72ml5r72ml5r7.png",
-    alt: "Profissional de confecção em máquina de costura"
+    src: "/img_sobre/Gemini_Generated_Image_l5r72ml5r72ml5r7.avif",
+    alt: "Profissional de confeccao em maquina de costura"
   }
 ];
+
+function toWebp(src: string) {
+  return src.replace(/\.avif$/i, ".webp");
+}
+
+function OptimizedImage({
+  src,
+  alt,
+  className,
+  loading
+}: {
+  src: string;
+  alt: string;
+  className?: string;
+  loading?: "eager" | "lazy";
+}) {
+  return (
+    <picture>
+      <source type="image/avif" srcSet={src} />
+      <img src={toWebp(src)} alt={alt} className={className} loading={loading} decoding="async" />
+    </picture>
+  );
+}
 
 export default function SobrePage() {
   return (
@@ -17,27 +40,27 @@ export default function SobrePage() {
       <header className="top-bar">
         <div className="container top-bar-inner">
           <a className="brand-mini" href="/">
-            <img src="/img_home/logo-removebg-preview.png" alt="Logo Bordatto Confecções" />
-            <strong>Bordatto Confecções</strong>
+            <OptimizedImage src="/img_home/logo-removebg-preview.avif" alt="Logo Bordatto Confeccoes" />
+            <strong>Bordatto Confeccoes</strong>
           </a>
           <nav className="top-nav">
-            <a className="top-link" href="/">Início</a>
-            <a className="top-link" href="/sobre">Orçamento</a>
+            <a className="top-link" href="/">Inicio</a>
+            <a className="top-link" href="/sobre">Orcamento</a>
           </nav>
         </div>
       </header>
 
       <section className="hero about-hero">
         <div className="container">
-          <img className="about-banner" src="/img_sobre/sobre.png" alt="Sobre a Bordatto Confecções" />
+          <OptimizedImage className="about-banner" src="/img_sobre/sobre.avif" alt="Sobre a Bordatto Confeccoes" />
         </div>
       </section>
 
       <section className="orcamento-section">
         <div className="container about-cta">
-          <h2>Precisa de um projeto de confecção completo?</h2>
-          <p>Fale com a Bordatto Confecções e receba atendimento direto para seu tipo de demanda.</p>
-          <a className="top-bar-cta" href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Olá, gostaria de fazer um orçamento.")}`} target="_blank" rel="noopener noreferrer">
+          <h2>Precisa de um projeto de confeccao completo?</h2>
+          <p>Fale com a Bordatto Confeccoes e receba atendimento direto para seu tipo de demanda.</p>
+          <a className="top-bar-cta" href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Ola, gostaria de fazer um orcamento.")}`} target="_blank" rel="noopener noreferrer">
             Conversar no WhatsApp
           </a>
         </div>
@@ -46,25 +69,25 @@ export default function SobrePage() {
       <section className="section">
         <div className="container grid-3">
           <article className="card">
-            <h3>O canivete suíço da costura</h3>
+            <h3>O canivete suico da costura</h3>
             <p>
-              Desenvolvemos cada projeto do zero: criação, modelagem, corte, ajustes e produção - sob medida
-              ou em escala. Trabalhamos com padrão técnico de ateliê, unindo precisão, organização e
-              excelência em cada etapa.
+              Desenvolvemos cada projeto do zero: criacao, modelagem, corte, ajustes e producao - sob medida
+              ou em escala. Trabalhamos com padrao tecnico de atelie, unindo precisao, organizacao e
+              excelencia em cada etapa.
             </p>
           </article>
           <article className="card">
             <h3>Do uniforme ao casamento</h3>
             <p>
-              Produzimos coleções escolares e empresariais, além de peças especiais para festas, cerimônias e
-              casamentos. Versatilidade e cuidado para atender desde demandas corporativas até momentos únicos.
+              Produzimos colecoes escolares e empresariais, alem de pecas especiais para festas, cerimonias e
+              casamentos. Versatilidade e cuidado para atender desde demandas corporativas ate momentos unicos.
             </p>
           </article>
           <article className="card">
             <h3>Qualidade artesanal</h3>
             <p>
-              Nossa equipe combina experiência, seleção criteriosa de materiais e revisão detalhada em todas
-              as fases do processo, garantindo acabamento premium em cada peça.
+              Nossa equipe combina experiencia, selecao criteriosa de materiais e revisao detalhada em todas
+              as fases do processo, garantindo acabamento premium em cada peca.
             </p>
           </article>
         </div>
@@ -76,14 +99,14 @@ export default function SobrePage() {
           <div className="atelier-grid">
             {atelierImages.map((image) => (
               <article key={image.src} className="atelier-card">
-                <img src={image.src} alt={image.alt} />
+                <OptimizedImage src={image.src} alt={image.alt} loading="lazy" />
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <a className="whats-float" href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Olá, gostaria de fazer um orçamento.")}`} target="_blank" rel="noopener noreferrer" aria-label="Abrir conversa no WhatsApp">
+      <a className="whats-float" href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent("Ola, gostaria de fazer um orcamento.")}`} target="_blank" rel="noopener noreferrer" aria-label="Abrir conversa no WhatsApp">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path d="M12 2a10 10 0 0 0-8.7 14.9L2 22l5.3-1.3A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3.1.8.8-3-.2-.3A8 8 0 1 1 12 20Zm4.4-6c-.2-.1-1.4-.7-1.6-.7s-.3-.1-.5.1-.6.7-.7.8-.2.2-.5.1a6.5 6.5 0 0 1-1.9-1.2 7.2 7.2 0 0 1-1.3-1.7c-.1-.3 0-.4.1-.5l.4-.5.2-.4a.4.4 0 0 0 0-.4c0-.1-.5-1.3-.8-1.8-.2-.4-.4-.3-.5-.3h-.5a1 1 0 0 0-.7.3c-.2.2-.9.8-.9 2 0 1.1.9 2.3 1 2.5.2.1 1.7 2.7 4.2 3.7.6.3 1 .4 1.4.5.6.2 1.1.2 1.5.1.5-.1 1.4-.6 1.6-1.2.2-.5.2-1 .1-1.1s-.2-.1-.4-.2Z" />
         </svg>

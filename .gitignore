@@ -32,3 +32,8 @@ Thumbs.db
 .vscode/
 .idea/
 
+
+# OpenNext
+.open-next
+.dev.vars
+.wrangler

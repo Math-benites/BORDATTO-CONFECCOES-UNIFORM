@@ -1,19 +1,19 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Bordatto Confecções",
   description: "Site oficial da Bordatto Confecções",
   icons: {
-    icon: "/img_home/logo-removebg-preview.png",
-    shortcut: "/img_home/logo-removebg-preview.png",
-    apple: "/img_home/logo-removebg-preview.png"
+    icon: "/img_home/logo-removebg-preview.avif",
+    shortcut: "/img_home/logo-removebg-preview.avif",
+    apple: "/img_home/logo-removebg-preview.avif"
   }
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" suppressHydrationWarning>
       <head>
         <link
           rel="stylesheet"
@@ -43,7 +43,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <i aria-hidden="true" className="fa-brands fa-instagram icon-fa" />
                 Instagram
               </a>
-              <a href="https://wa.me/5548991217882?text=Ol%C3%A1%2C%20gostaria%20de%20fazer%20um%20or%C3%A7amento." target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/5592992193704?text=Ol%C3%A1%2C%20gostaria%20de%20fazer%20um%20or%C3%A7amento." target="_blank" rel="noopener noreferrer">
                 <i aria-hidden="true" className="fa-brands fa-whatsapp icon-fa" />
                 WhatsApp
               </a>

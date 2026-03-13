@@ -283,34 +283,49 @@ h2 {
   padding: 1rem 0 2.2rem;
 }
 
-.carousel-bleed {
-  width: 100%;
+.carousel-shell {
+  width: min(1150px, 92%);
+  margin: 0 auto;
 }
 
-.carousel-marquee {
-  display: flex;
+.carousel-viewport {
   overflow: hidden;
+  border-top: 1px solid rgba(183, 203, 228, 0.52);
+  border-bottom: 1px solid rgba(183, 203, 228, 0.52);
   background:
     linear-gradient(180deg, rgba(219, 234, 254, 0.34), rgba(191, 219, 254, 0.22)),
     rgba(255, 255, 255, 0.26);
-  border-top: 1px solid rgba(183, 203, 228, 0.52);
-  border-bottom: 1px solid rgba(183, 203, 228, 0.52);
   backdrop-filter: blur(3px);
+  border-radius: 14px;
 }
 
-.carousel-group {
+.carousel-track {
   display: flex;
-  gap: 18px;
-  flex: 0 0 auto;
-  min-width: 100%;
+  gap: 16px;
   padding: 20px 18px;
-  animation: carousel-scroll 45s linear infinite;
-  will-change: transform;
+  align-items: stretch;
 }
 
-.carousel-marquee:hover .carousel-group,
-.carousel-marquee:active .carousel-group {
-  animation-play-state: paused;
+.carousel-slide {
+  flex: 1 1 0;
+  min-width: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.carousel-slide .slide-card {
+  width: 100%;
+  height: clamp(260px, 32vw, 420px);
+  flex: 0 0 auto;
+}
+
+.carousel-slide.is-active {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.carousel-slide.is-side {
+  transform: scale(0.93);
+  opacity: 0.72;
 }
 
 .slide-card {
@@ -376,13 +391,28 @@ h2 {
   overflow: hidden;
 }
 
-@keyframes carousel-scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-100%);
-  }
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 76, 129, 0.45);
+  background: rgba(15, 76, 129, 0.18);
+  cursor: pointer;
+  transition: all 0.22s ease;
+}
+
+.carousel-dot.active {
+  width: 26px;
+  background: #0f4c81;
+  border-color: #0f4c81;
 }
 
 .section {
@@ -553,18 +583,21 @@ h2 {
   fill: currentColor;
 }
 
-@media (min-width: 861px) {
-  .carousel-bleed {
-    width: 100vw;
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
-  }
-}
-
 @media (max-width: 860px) {
-  .slide-card {
-    flex-basis: clamp(210px, 55vw, 300px);
-    height: 340px;
+  .carousel-track {
+    padding: 14px 12px;
+  }
+
+  .carousel-slide.is-side {
+    display: none;
+  }
+
+  .carousel-slide {
+    flex: 0 0 100%;
+  }
+
+  .carousel-slide .slide-card {
+    height: clamp(260px, 64vw, 360px);
   }
 }
 
@@ -589,15 +622,17 @@ h2 {
     padding: 0.35rem 0.56rem;
   }
 
-  .carousel-group {
-    gap: 12px;
-    padding: 14px 12px;
-    animation-duration: 36s;
+  .carousel-slide .slide-card {
+    height: 280px;
   }
 
-  .slide-card {
-    flex-basis: 76vw;
-    height: 280px;
+  .carousel-dot {
+    width: 9px;
+    height: 9px;
+  }
+
+  .carousel-dot.active {
+    width: 22px;
   }
 
   .whats-float {

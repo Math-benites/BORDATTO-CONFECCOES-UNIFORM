@@ -1,21 +1,51 @@
-﻿"use client";
+"use client";
 
 import { useEffect, useState } from "react";
 
 const slides = [
-  { image: "/img_home/Gemini_Generated_Image_10dtlh10dtlh10dt.png", tag: "Escolar", title: "Linha escolar com design moderno e resistente" },
-  { image: "/img_home/Gemini_Generated_Image_1bv3h11bv3h11bv3.png", tag: "Escolar", title: "Uniformes escolares com acabamento premium" },
-  { image: "/img_home/Gemini_Generated_Image_2rcg0o2rcg0o2rcg.png", tag: "Escolar", title: "Modelos escolares para ensino fundamental e médio" },
-  { image: "/img_home/Gemini_Generated_Image_9ddz3h9ddz3h9ddz.png", tag: "Escolar", title: "Conforto e resistência para a rotina escolar" },
-  { image: "/img_home/Gemini_Generated_Image_d8e8y1d8e8y1d8e8.png", tag: "Escolar", title: "Padrões escolares personalizados por instituição" },
-  { image: "/img_home/Gemini_Generated_Image_vs1u9tvs1u9tvs1u.png", tag: "Escolar", title: "Modelos escolares" },
-  { image: "/img_home/Gemini_Generated_Image_dnbfnadnbfnadnbf.png", tag: "Escolar", title: "Coleções completas para uniformização escolar" }
+  { image: "/img_home/Gemini_Generated_Image_10dtlh10dtlh10dt.avif", tag: "Escolar", title: "Linha escolar com design moderno e resistente" },
+  { image: "/img_home/Gemini_Generated_Image_1bv3h11bv3h11bv3.avif", tag: "Escolar", title: "Uniformes escolares com acabamento premium" },
+  { image: "/img_home/Gemini_Generated_Image_1sopgb1sopgb1sop.avif", tag: "Escolar", title: "Conjunto escolar com identidade visual forte" },
+  { image: "/img_home/Gemini_Generated_Image_2rcg0o2rcg0o2rcg.avif", tag: "Escolar", title: "Modelos escolares para ensino fundamental e médio" },
+  { image: "/img_home/Gemini_Generated_Image_2x0ymn2x0ymn2x0y.avif", tag: "Escolar", title: "Uniforme com acabamento técnico e conforto diário" },
+  { image: "/img_home/Gemini_Generated_Image_9ddz3h9ddz3h9ddz.avif", tag: "Escolar", title: "Conforto e resistência para a rotina escolar" },
+  { image: "/img_home/Gemini_Generated_Image_d8e8y1d8e8y1d8e8.avif", tag: "Escolar", title: "Padrões escolares personalizados por instituição" },
+  { image: "/img_home/Gemini_Generated_Image_dnbfnadnbfnadnbf.avif", tag: "Escolar", title: "Coleções completas para uniformização escolar" },
+  { image: "/img_home/Gemini_Generated_Image_ozao9vozao9vozao.avif", tag: "Escolar", title: "Linha escolar com foco em durabilidade e estilo" },
+  { image: "/img_home/Gemini_Generated_Image_q6sw22q6sw22q6sw.avif", tag: "Escolar", title: "Modelagens escolares para diferentes faixas etárias" },
+  { image: "/img_home/Gemini_Generated_Image_vs1u9tvs1u9tvs1u.avif", tag: "Escolar", title: "Modelos escolares" }
 ];
 
-const whatsappNumber = "5548991217882";
+const whatsappNumber = "5592992193704";
+
+function toWebp(src: string) {
+  return src.replace(/\.avif$/i, ".webp");
+}
+
+function OptimizedImage({
+  src,
+  alt,
+  className,
+  loading,
+  onClick
+}: {
+  src: string;
+  alt: string;
+  className?: string;
+  loading?: "eager" | "lazy";
+  onClick?: React.MouseEventHandler<HTMLImageElement>;
+}) {
+  return (
+    <picture>
+      <source type="image/avif" srcSet={src} />
+      <img src={toWebp(src)} alt={alt} className={className} loading={loading} decoding="async" onClick={onClick} />
+    </picture>
+  );
+}
 
 export default function Home() {
   const [selectedSlide, setSelectedSlide] = useState<{ image: string; title: string } | null>(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
     if (!selectedSlide) return;
@@ -35,12 +65,22 @@ export default function Home() {
     };
   }, [selectedSlide]);
 
+  useEffect(() => {
+    if (selectedSlide) return;
+
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 4500);
+
+    return () => clearInterval(timer);
+  }, [selectedSlide]);
+
   return (
     <main className="home-page">
       <header className="top-bar">
         <div className="container top-bar-inner">
           <a className="brand-mini" href="/">
-            <img src="/img_home/logo-removebg-preview.png" alt="Logo Bordatto Confecções" />
+            <OptimizedImage src="/img_home/logo-removebg-preview.avif" alt="Logo Bordatto Confecções" />
             <strong>Bordatto Confecções</strong>
           </a>
           <nav className="top-nav">
@@ -53,8 +93,10 @@ export default function Home() {
       <section className="hero sale-hero">
         <div className="hero-image-wrap">
           <picture>
-            <source media="(max-width: 680px)" srcSet="/img_home/mobile.png" />
-            <img src="/img_home/desktop.png" alt="Uniformes escolares Bordatto Confecções" className="hero-image" />
+            <source media="(max-width: 680px)" type="image/avif" srcSet="/img_home/mobile.avif" />
+            <source media="(max-width: 680px)" srcSet="/img_home/mobile.webp" />
+            <source type="image/avif" srcSet="/img_home/desktop.avif" />
+            <img src="/img_home/desktop.webp" alt="Uniformes escolares Bordatto Confecções" className="hero-image" />
           </picture>
         </div>
       </section>
@@ -63,40 +105,43 @@ export default function Home() {
         <div className="container">
           <h2>Modelos em destaque</h2>
         </div>
-        <div className="carousel-bleed">
-          <div className="carousel-marquee">
-            <div className="carousel-group">
-              {slides.map((slide) => (
-                <button
-                  key={`a-${slide.image}`}
-                  type="button"
-                  className="slide-card slide-trigger"
-                  onClick={() => setSelectedSlide(slide)}
-                >
-                  <img src={slide.image} alt={slide.title} className="slide-image" />
-                  <div className="slide-overlay">
-                    <span>{slide.tag}</span>
-                    <h3>{slide.title}</h3>
+        <div className="carousel-shell">
+          <div className="carousel-viewport">
+            <div className="carousel-track">
+              {[-1, 0, 1].map((offset) => {
+                const index = (currentSlide + offset + slides.length) % slides.length;
+                const slide = slides[index];
+                const isActive = offset === 0;
+
+                return (
+                  <div key={`${offset}-${slide.image}`} className={`carousel-slide ${isActive ? "is-active" : "is-side"}`}>
+                    <button
+                      type="button"
+                      className="slide-card slide-trigger"
+                      onClick={() => setSelectedSlide(slide)}
+                    >
+                      <OptimizedImage src={slide.image} alt={slide.title} className="slide-image" loading="lazy" />
+                      <div className="slide-overlay">
+                        <span>{slide.tag}</span>
+                        <h3>{slide.title}</h3>
+                      </div>
+                    </button>
                   </div>
-                </button>
-              ))}
+                );
+              })}
             </div>
-            <div className="carousel-group" aria-hidden="true">
-              {slides.map((slide) => (
-                <button
-                  key={`b-${slide.image}`}
-                  type="button"
-                  className="slide-card slide-trigger"
-                  onClick={() => setSelectedSlide(slide)}
-                >
-                  <img src={slide.image} alt="" className="slide-image" />
-                  <div className="slide-overlay">
-                    <span>{slide.tag}</span>
-                    <h3>{slide.title}</h3>
-                  </div>
-                </button>
-              ))}
-            </div>
+          </div>
+          <div className="carousel-dots" aria-label="Navegação do carrossel">
+            {slides.map((slide, index) => (
+              <button
+                key={`dot-${slide.image}`}
+                type="button"
+                className={`carousel-dot ${currentSlide === index ? "active" : ""}`}
+                aria-label={`Ir para imagem ${index + 1}`}
+                aria-current={currentSlide === index ? "true" : "false"}
+                onClick={() => setCurrentSlide(index)}
+              />
+            ))}
           </div>
         </div>
       </section>
@@ -147,7 +192,7 @@ export default function Home() {
           <button type="button" className="lightbox-close" onClick={() => setSelectedSlide(null)} aria-label="Fechar imagem">
             ×
           </button>
-          <img
+          <OptimizedImage
             src={selectedSlide.image}
             alt={selectedSlide.title}
             className="lightbox-image"

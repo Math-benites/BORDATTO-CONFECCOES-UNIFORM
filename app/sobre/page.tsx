@@ -2,18 +2,14 @@ const whatsappNumber = "5592992193704";
 
 const atelierImages = [
   {
-    src: "/img_sobre/Gemini_Generated_Image_ct92crct92crct92.avif",
+    src: "/img_sobre/Gemini_Generated_Image_ct92crct92crct92.webp",
     alt: "Costureira ajustando roupa em manequim"
   },
   {
-    src: "/img_sobre/Gemini_Generated_Image_l5r72ml5r72ml5r7.avif",
+    src: "/img_sobre/Gemini_Generated_Image_l5r72ml5r72ml5r7.webp",
     alt: "Profissional de confecção em máquina de costura"
   }
 ];
-
-function toWebp(src: string) {
-  return src.replace(/\.avif$/i, ".webp");
-}
 
 function OptimizedImage({
   src,
@@ -26,12 +22,7 @@ function OptimizedImage({
   className?: string;
   loading?: "eager" | "lazy";
 }) {
-  return (
-    <picture>
-      <source type="image/avif" srcSet={src} />
-      <img src={toWebp(src)} alt={alt} className={className} loading={loading} decoding="async" />
-    </picture>
-  );
+  return <img src={src} alt={alt} className={className} loading={loading} decoding="async" />;
 }
 
 export default function SobrePage() {
@@ -40,7 +31,7 @@ export default function SobrePage() {
       <header className="top-bar">
         <div className="container top-bar-inner">
           <a className="brand-mini" href="/">
-            <OptimizedImage src="/img_home/logo-removebg-preview.avif" alt="Logo Bordatto Confecções" />
+            <OptimizedImage src="/img_home/logo-removebg-preview.webp" alt="Logo Bordatto Confecções" />
             <strong>Bordatto Confecções</strong>
           </a>
           <nav className="top-nav">
@@ -52,7 +43,7 @@ export default function SobrePage() {
 
       <section className="hero about-hero">
         <div className="container">
-          <OptimizedImage className="about-banner" src="/img_sobre/sobre.avif" alt="Sobre a Bordatto Confecções" />
+          <OptimizedImage className="about-banner" src="/img_sobre/sobre.webp" alt="Sobre a Bordatto Confecções" />
         </div>
       </section>
 

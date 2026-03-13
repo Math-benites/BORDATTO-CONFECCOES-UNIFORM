@@ -5,9 +5,9 @@ export const metadata: Metadata = {
   title: "Bordatto Confecções",
   description: "Site oficial da Bordatto Confecções",
   icons: {
-    icon: "/img_home/logo-removebg-preview.avif",
-    shortcut: "/img_home/logo-removebg-preview.avif",
-    apple: "/img_home/logo-removebg-preview.avif"
+    icon: "/img_home/logo-removebg-preview.webp",
+    shortcut: "/img_home/logo-removebg-preview.webp",
+    apple: "/img_home/logo-removebg-preview.webp"
   }
 };
 
